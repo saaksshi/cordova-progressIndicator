@@ -61,6 +61,29 @@
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
     
 }
+/**
+ * Show
+ */
+- (void)show:(CDVInvokedUrlCommand *)command {
+    
+    // obtain commands
+    bool dim = [[command.arguments objectAtIndex:0] boolValue];
+    //UIColor* color = [command.arguments objectAtIndex:1];
+    
+    // initialize indicator with options, text, detail
+    self.progressIndicator = nil;
+    self.progressIndicator = [MBProgressHUD showHUDAddedTo:self.webView.superview animated:YES];
+    self.progressIndicator.mode = MBProgressHUDModeIndeterminate;
+    
+    // Check if dim : true ? false
+    if (dim == true) {
+        self.progressIndicator.dimBackground = YES;
+    }
+    
+    // Cordova success
+    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@""];
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
 
 
 
