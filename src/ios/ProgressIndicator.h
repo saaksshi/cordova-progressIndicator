@@ -6,6 +6,7 @@
 
 @property (nonatomic, assign) MBProgressHUD* progressIndicator;
 
+- (void)show:(CDVInvokedUrlCommand*)command;
 - (void)showSimple:(CDVInvokedUrlCommand*)command;
 - (void)showSimpleWithLabel:(CDVInvokedUrlCommand*)command;
 - (void)showSimpleWithLabelDetail:(CDVInvokedUrlCommand*)command;
